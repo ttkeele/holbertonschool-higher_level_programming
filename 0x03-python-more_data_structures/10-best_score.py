@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
-    result = 0
-    if a_dictionary:
-        for key in a_dictionary:
-            if a_dictionary[key] > result:
-                result = a_dictionary[key]
-                winner = key
-                return winner
+    if a_dictionary is None or a_dictionary == {}:
+        return None
+    keys = list(a_dictionary.keys())
+    trent = keys[0]
+    for i in keys:
+        trent = i if a_dictionary[i] > a_dictionary[trent] else trent
+    return trent
