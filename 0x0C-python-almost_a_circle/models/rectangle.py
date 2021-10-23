@@ -15,3 +15,23 @@ class Rectangle(Base):
         self.x = x
         self.y = y
         super().__init__(id)
+
+     @property
+     def width(self):
+         """getter of width"""
+         return self.__width
+
+     @property
+     def height(self):
+         """getter of height"""
+         return self.__height
+
+     @property
+     def x(self):
+         """getter of x"""
+         return self.__x
+
+     @property
+     def y(self):
+         """getter of y"""
+         return self.__y
