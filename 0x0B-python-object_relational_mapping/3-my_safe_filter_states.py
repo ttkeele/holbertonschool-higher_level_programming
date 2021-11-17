@@ -15,11 +15,11 @@ if __name__ == "__main__":
                          db=argv[3])
     cur = db.cursor()
 
+    state_lookup = str(argv[4])
     SQLcommand = """SELECT * FROM states
-                    WHERE BINARY states.name LIKE '{}'
-                    ORDER BY states.id ASC""".format(argv[4])
-
-    cur.execute(SQLcommand)
+                    WHERE states.name=%s
+                    ORDER BY states.id ASC"""
+    cur.execute(SQLcommand, (state_lookup,))
 
     for row in cur.fetchall():
         print(row)
