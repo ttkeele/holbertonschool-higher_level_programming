@@ -16,6 +16,7 @@ if __name__ == "__main__":
     db = argv[3]
     state_obj = argv[4]
 
+
     engine_string = "mysql://{}:{}@localhost:3306/{}".format(username,
                                                              wd, db)
     engine = create_engine(engine_string)
@@ -30,5 +31,5 @@ if __name__ == "__main__":
         if obj.name == state_obj:
             print("{}".format(obj.id))
             found_flag = 1
-        if found_flag == 0:
-            print("Not found")
+    if found_flag == 0:
+        print("Not found")
