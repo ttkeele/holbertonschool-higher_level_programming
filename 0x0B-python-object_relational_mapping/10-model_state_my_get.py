@@ -10,26 +10,15 @@ from sys import argv
 from model_state import Base, State
 
 if __name__ == "__main__":
-
-    username = argv[1]
-    passwd = argv[2]
-    db = argv[3]
-    state_obj = argv[4]
-
-
-    engine_string = "mysql://{}:{}@localhost:3306/{}".format(username,
-                                                             wd, db)
-    engine = create_engine(engine_string)
-    Base.metadata.bind = engine
-
-    DBSession = sessionmaker(bind=engine)
-    session = DBSession()
-
-    list = session.query(State).order_by(State.id).all()
-    found_flag = 0
-    for obj in list:
-        if obj.name == state_obj:
-            print("{}".format(obj.id))
-            found_flag = 1
-    if found_flag == 0:
+    eng = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(argv[1],
+                                                                    argv[2],
+                                                                    argv[3]))
+    Base.metadata.create_all(eng)
+    Session = sessionmaker(bind=eng)
+    session = Session()
+    state = session.query(State).filter_by(name=argv[4]).first()
+    if state is not None:
+        print(str(state.id))
+    else:
         print("Not found")
+    session.close()
