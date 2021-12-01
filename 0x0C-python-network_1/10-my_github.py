@@ -6,7 +6,8 @@ to display your id
 if __name__ == '__main__':
     import requests
     from requests.auth import HTTPBasicAuth
-    from sys import argv
-    r = requests.get('https://api.github.com/users/{}'.format(argv[1]),
-                     auth=HTTPBasicAuth(argv[1], argv[2]))
+    from sys
+
+    auth = HTTPBasicAuth(sys.argv[1], sys.argv[2])
+    r = requests.get('https://api.github.com/user', auth=auth)
     print(r.json().get('id'))
