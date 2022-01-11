@@ -8,9 +8,9 @@ request.get(url, function (error, response, body) {
   } else {
     const todos = JSON.parse(body);
     const completed = {};
-    for (const i of todo) {
+    for (const i of todos) {
       if (i.completed === true) {
-        if (i.usrId in completed) {
+        if (i.userId in completed) {
 	  completed[i.userId]++;
         } else {
 	  completed[i.userId] = 1;
