@@ -6,14 +6,14 @@ request.get(url, function (error, response, body) {
   if (error) {
     console.log(error);
   } else {
-    const todos = JSON.parse(body);
+    const todo = JSON.parse(body);
     const completed = {};
-    for (const x of todos) {
-      if (x.completed === true) {
-        if (x.userId in completed) {
+    for (const i of todo) {
+      if (i.completed === true) {
+        if (i.userId in completed) {
 	  completed[x.userId]++;
         } else {
-	  completed[x.userId] = 1;
+	  completed[i.userId] = 1;
         }
       }
     }
