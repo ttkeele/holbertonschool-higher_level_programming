@@ -8,12 +8,12 @@ request.get(url, function (error, response, body) {
   } else {
     const todos = JSON.parse(body);
     const completed = {};
-    for (const i of todos) {
-      if (i.completed === true) {
-        if (i.userId in completed) {
-	  completed[i.userId]++;
+    for (const x of todos) {
+      if (x.completed === true) {
+        if (x.userId in completed) {
+	  completed[x.userId]++;
         } else {
-	  completed[i.userId] = 1;
+	  completed[x.userId] = 1;
         }
       }
     }
