@@ -1,10 +1,10 @@
 #!/usr/bin/node
 
 const request = require('request');
-
-request(process.argv[2], function (error, response, body) {
+const url = process.argv[2];
+request.get(url, function (error, response, body) {
     if (error) {
-	console.error(error);
+	console.log(error);
     }
     const dict = JSON.parse(body).reduce((acc, elem) => {
 	if (!acc[elem.userId]) {
