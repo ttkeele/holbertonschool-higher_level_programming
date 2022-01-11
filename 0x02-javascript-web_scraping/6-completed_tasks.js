@@ -11,9 +11,9 @@ request.get(url, function (error, response, body) {
     for (const i of todos) {
       if (i.completed === true) {
         if (i.userId in completed) {
-	  completed[i.userId]++;
+          completed[i.userId]++;
         } else {
-	  completed[i.userId] = 1;
+          completed[i.userId] = 1;
         }
       }
     }
