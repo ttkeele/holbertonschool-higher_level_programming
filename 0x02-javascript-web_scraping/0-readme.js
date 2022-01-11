@@ -1,8 +1,8 @@
 #!/usr/bin/node
 
-const rm = require('rm');
+const fs = require('fs');
 
-rm.readFile(process.argv[2], 'utf-8', function (err, result) {
+fs.readFile(process.argv[2], 'utf-8', function (err, result) {
   if (err) {
     console.log(err);
   } else {
