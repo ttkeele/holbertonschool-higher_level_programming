@@ -2,9 +2,6 @@
 """module that contains base class"""
 
 
-import json
-
-
 class Base:
     """base class"""
     __nb_objects = 0
