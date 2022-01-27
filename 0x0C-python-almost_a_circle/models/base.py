@@ -7,13 +7,8 @@ class Base:
     __nb_objects = 0
 
     def __ini__(self, id=None):
-        """initailizes object
-
-        Arg:
-            id(int): id to assign
-        """
-        if id is None:
+        if id is not None:
+            self.id = id
+        else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
-        else:
-            self.id = id
