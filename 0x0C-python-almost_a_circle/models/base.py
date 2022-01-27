@@ -2,12 +2,15 @@
 """module that contains base class"""
 
 
+import json
+
+
 class Base:
     """base class"""
     __nb_objects = 0
 
     def __ini__(self, id=None):
-        """initailizes object"""
+        """initailizes object
 
         Arg:
             id(int): id to assign
